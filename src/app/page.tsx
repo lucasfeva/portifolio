@@ -8,6 +8,7 @@ import { useGSAP } from "@gsap/react";
 import Header from "@/components/header";
 import Link from "next/link";
 import { TechnologyCarousel } from "@/components/technology-carousel";
+import Footer from "@/components/footer";
 
 export default function Home() {
   useGSAP(() => {
@@ -25,7 +26,7 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <div className="lg:max-w-[1150px] md:max-w-[600px] mx-auto space-y-24 lg:p-0 px-6">
+      <div className="lg:max-w-[1150px] md:max-w-[600px] mx-auto space-y-24 lg:p-0 px-6 mb-16">
         <div className="py-24">
           <Waves
             lineColor="#2dd4bf"
@@ -98,7 +99,7 @@ export default function Home() {
           <TechnologyCarousel />
         </div>
       </div>
-      <div className="h-12"></div>
+      <Footer />
     </div>
   );
 }
