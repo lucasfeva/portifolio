@@ -7,6 +7,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Technologies } from "../constants/technology";
 
@@ -32,6 +34,10 @@ export function TechnologyCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
+      <div className="hidden lg:flex items-center justify-center gap-2 mt-6">
+        <CarouselPrevious />
+        <CarouselNext />
+      </div>
     </Carousel>
   );
 }
