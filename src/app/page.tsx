@@ -47,11 +47,17 @@ export default function Home() {
               Olá, eu sou
               <br /> Lucas Ferreira.
             </h1>
-            <p className="font-semibold">
-              Desenvolvedor web e Quality Assurance
-            </p>
+            <p className="font-semibold">Desenvolvedor full-stack</p>
             <div className="buttons flex items-center gap-2">
-              <Button className="rounded-full font-semibold">Contate me</Button>
+              <Button className="rounded-full font-semibold">
+                <Link
+                  href="mailto:luscas.png@gmail.com"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Contate me
+                </Link>
+              </Button>
               <Button
                 className="rounded-full"
                 size="icon"
@@ -86,7 +92,7 @@ export default function Home() {
         <div className="about space-y-6">
           <h2 className="text-4xl font-bold">Sobre mim</h2>
           <p>
-            Meu nome é Lucas Ferreira Silva, sou desenvolvedor web e QA com uma
+            Meu nome é Lucas Ferreira Silva, sou desenvolvedor web com uma
             paixão por criar sites inovadores e funcionais. Com dois anos de
             experiência no mercado, busco constantemente aprimorar minhas
             habilidades e expandir meu conhecimento. Meu foco é entregar
