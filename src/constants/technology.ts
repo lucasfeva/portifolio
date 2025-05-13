@@ -55,8 +55,28 @@ export const Technologies: Technologies[] = [
     color2: "#616fb4",
   },
   {
+    icon: "/icons/laravel.svg",
+    color1: "#c2180f",
+    color2: "#FF2D20",
+  },
+  {
     icon: "/icons/mysql.svg",
     color1: "#085466",
     color2: "#e99208",
+  },
+  {
+    icon: "/icons/git.svg",
+    color1: "#ce240d",
+    color2: "#EE513B",
+  },
+  {
+    icon: "/icons/docker.svg",
+    color1: "#147ac8",
+    color2: "#2396ED",
+  },
+  {
+    icon: "/icons/cypress.svg",
+    color1: "#397665",
+    color2: "#69d3a7",
   },
 ];

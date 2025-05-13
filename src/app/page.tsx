@@ -90,7 +90,9 @@ export default function Home() {
           </div>
         </div>
         <div className="about space-y-6">
-          <h2 className="text-4xl font-bold">Sobre mim</h2>
+          <h2 className="text-4xl font-bold" id="about">
+            Sobre mim
+          </h2>
           <p>
             Meu nome é Lucas Ferreira Silva, sou desenvolvedor web com uma
             paixão por criar sites inovadores e funcionais. Com dois anos de
@@ -101,7 +103,9 @@ export default function Home() {
           </p>
         </div>
         <div className="technologies space-y-6">
-          <h2 className="text-4xl font-bold">Minhas técnologias</h2>
+          <h2 className="text-4xl font-bold" id="technologies">
+            Minhas técnologias
+          </h2>
           <TechnologyCarousel />
         </div>
       </div>
