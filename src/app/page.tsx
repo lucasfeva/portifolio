@@ -9,6 +9,7 @@ import Header from "@/components/header";
 import Link from "next/link";
 import { TechnologyCarousel } from "@/components/technology-carousel";
 import Footer from "@/components/footer";
+import ProjectsCard from "@/components/projects";
 
 export default function Home() {
   useGSAP(() => {
@@ -107,6 +108,12 @@ export default function Home() {
             Minhas técnologias
           </h2>
           <TechnologyCarousel />
+        </div>
+        <div className="technologies space-y-6">
+          <h2 className="text-4xl font-bold" id="projects">
+            Projetos
+          </h2>
+          <ProjectsCard />
         </div>
       </div>
       <Footer />
