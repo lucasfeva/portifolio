@@ -23,4 +23,20 @@ export const Projects: Project[] = [
       "html",
     ],
   },
+  {
+    title: "Calcular Nota",
+    description:
+      "Aplicação desenvolvida para calcular a média final e indicar a nota mínima necessária para aprovação com média 5, de acordo com os critérios da FHO.",
+    image: "/projects/calcular-nota.png",
+    link: "https://calcularnota.com.br/",
+    technologies: [
+      "react",
+      "nextjs",
+      "node",
+      "tailwind",
+      "typescript",
+      "javascript",
+      "html",
+    ],
+  },
 ];
