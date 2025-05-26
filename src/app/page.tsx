@@ -4,28 +4,166 @@ import { Button } from "@/components/ui/button";
 import Waves from "../components/waves";
 import { Github, Linkedin } from "lucide-react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Header from "@/components/header";
 import Link from "next/link";
 import { TechnologyCarousel } from "@/components/technology-carousel";
 import Footer from "@/components/footer";
 import ProjectsCard from "@/components/projects";
+import { useEffect } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-  useGSAP(() => {
-    const tl = gsap.timeline({ defaults: { duration: 1, ease: "power3.out" } });
+  useEffect(() => {
+    const smoothScroll = () => {
+      document.documentElement.style.scrollBehavior = "smooth";
 
-    tl.from(".waves", { y: -50, opacity: 0 })
-      .from(".intro h1", { x: -100, opacity: 0 }, "-=0.5")
-      .from(".intro p", { x: 100, opacity: 0 }, "-=0.5")
-      .from(".buttons button", { scale: 0, opacity: 0, stagger: 0.2 }, "-=0.5")
-      .from(".about h2", { y: 50, opacity: 0 })
-      .from(".about p", { y: 50, opacity: 0 }, "-=0.5")
-      .from(".technologies", { y: 50, opacity: 0 });
+      const style = document.createElement("style");
+      style.textContent = `
+        html {
+          scroll-behavior: smooth !important;
+        }
+        * {
+          scroll-behavior: smooth !important;
+        }
+      `;
+      document.head.appendChild(style);
+    };
+
+    smoothScroll();
+  }, []);
+
+  useGSAP(() => {
+    gsap.from(".waves", {
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+    });
+
+    gsap.from(".intro h1", {
+      x: -100,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.5,
+    });
+
+    gsap.from(".intro p", {
+      x: 100,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.7,
+    });
+
+    gsap.from(".buttons button", {
+      scale: 0,
+      opacity: 0,
+      duration: 0.8,
+      ease: "back.out(1.7)",
+      stagger: 0.2,
+      delay: 0.9,
+    });
+
+    const buttons = document.querySelectorAll(".buttons button");
+    buttons.forEach((button) => {
+      button.addEventListener("mouseenter", () => {
+        gsap.to(button, {
+          scale: 1.1,
+          duration: 0.3,
+          ease: "back.out(1.7)",
+        });
+      });
+
+      button.addEventListener("mouseleave", () => {
+        gsap.to(button, {
+          scale: 1,
+          duration: 0.3,
+          ease: "back.out(1.7)",
+        });
+      });
+    });
+
+    gsap.from(".about h2", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".about",
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    gsap.from(".about p", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.2,
+      scrollTrigger: {
+        trigger: ".about",
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    gsap.from(".technologies h2", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".technologies",
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    gsap.from(".technology-carousel", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.2,
+      scrollTrigger: {
+        trigger: ".technologies",
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    gsap.from(".projects h2", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".projects",
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    gsap.from(".projects-content", {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.2,
+      scrollTrigger: {
+        trigger: ".projects",
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+    });
   });
 
   return (
-    <div>
+    <div className="scroll-smooth">
       <Header />
       <div className="lg:max-w-[1150px] md:max-w-[600px] mx-auto space-y-24 lg:p-0 px-6 mb-16">
         <div className="py-24">
@@ -107,13 +245,17 @@ export default function Home() {
           <h2 className="text-4xl font-bold" id="technologies">
             Minhas técnologias
           </h2>
-          <TechnologyCarousel />
+          <div className="technology-carousel">
+            <TechnologyCarousel />
+          </div>
         </div>
-        <div className="technologies space-y-6">
+        <div className="projects space-y-6">
           <h2 className="text-4xl font-bold" id="projects">
             Projetos
           </h2>
-          <ProjectsCard />
+          <div className="projects-content">
+            <ProjectsCard />
+          </div>
         </div>
       </div>
       <Footer />
